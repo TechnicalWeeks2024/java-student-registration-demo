@@ -5,7 +5,9 @@ import com.softserve.techweek.java.studentregistryapp.contorller.dto.StudentWith
 import com.softserve.techweek.java.studentregistryapp.contorller.mapper.StudentMapper;
 import com.softserve.techweek.java.studentregistryapp.service.StudentService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,6 +34,11 @@ public class StudentsController {
     @PostMapping
     public Integer createStudent(@RequestBody StudentDto studentDto) {
         return studentService.createStudent(studentMapper.toStudentDto(studentDto));
+    }
+    
+    @DeleteMapping("/{id}")
+    public Integer deleteStudent(@PathVariable("id") Integer id) {
+        return null;
     }
 
 }
